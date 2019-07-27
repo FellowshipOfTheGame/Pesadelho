@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 	float _horizontalInput, _verticalInput;
 
 	public float speed;
+    private int health = 3;
 
 	void Awake(){
 
@@ -31,6 +32,27 @@ public class Player : MonoBehaviour
 
         _rb.velocity = new Vector2(_horizontalInput*speed, _verticalInput*speed);
 
+    }
+
+    void OnCollisionEnter2D(Collision2D col){
+
+        if(col.gameObject.tag == "Enemy"){
+            //Repelir o player
+
+            Damage();
+        }
+
+    }
+
+    void Damage(){
+        health--;
+
+        if(health == 0)
+            Die();
+    }
+
+    void Die(){
+        Destroy(gameObject);
     }
 
 }

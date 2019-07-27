@@ -5,11 +5,8 @@ using UnityEngine;
 public class Enemy_Control : MonoBehaviour{
 
 	//SerializeField permite que variáveis privadas apareçam na GUI
-	[SerializeField]
-	Transform[] waypoints;
-
-	[SerializeField]
-	float moveSpeed = 2f;
+	[SerializeField] Transform[] waypoints = null;
+	[SerializeField] float moveSpeed = 2f;
 
 	int waypointIndex = 0;
 
