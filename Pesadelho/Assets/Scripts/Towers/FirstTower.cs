@@ -5,7 +5,6 @@ using UnityEngine;
 public class FirstTower : MonoBehaviour{
 
 	GameObject[] cannon = new GameObject[8];
-
 	public GameObject bullet;
 	public float fireRate;
 

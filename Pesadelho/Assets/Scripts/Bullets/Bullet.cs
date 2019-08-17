@@ -6,9 +6,9 @@ public class Bullet : MonoBehaviour{
 
     Rigidbody2D _rb;
 
-	private Vector3 target;
-	[SerializeField] float speed;
-	[SerializeField] float damage;
+	private Vector3 target = Vector3.zero;
+	[SerializeField] float speed = 0;
+	[SerializeField] float damage = 0;
 
 
     void Awake(){
