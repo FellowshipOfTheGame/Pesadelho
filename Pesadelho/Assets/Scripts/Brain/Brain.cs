@@ -21,13 +21,20 @@ public class Brain : MonoBehaviour
     }
 
     //Quando algum objeto entra em colisão com o cérebro
-     void OnCollisionEnter2D(Collision2D col){
+    void OnCollisionEnter2D(Collision2D col){
         //Se a tag desse objeto for Enemy chamar a função de tomar dano
         // e destruir o inimigo que estiver atacando
         if(col.gameObject.tag == "Enemy"){
             TakeDamage();
             Destroy(col.gameObject);
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "Enemy"){
+            TakeDamage();
+            Destroy(other.gameObject);
+        }    
     }
 
     //Função para parar o jogo e mostrar a tela de game over
