@@ -10,6 +10,8 @@ public class Enemy_Control : MonoBehaviour{
 
 	int waypointIndex = 0;
 
+    public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
+
     // Start is called before the first frame update
     void Start(){
 
@@ -27,7 +29,7 @@ public class Enemy_Control : MonoBehaviour{
     void Move(){
 
     	if(waypointIndex < waypoints.Length){
-	    	transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed*Time.deltaTime);
+	    	transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, MoveSpeed*Time.deltaTime);
 
 	    	if(transform.position == waypoints[waypointIndex].transform.position)
 	    		waypointIndex++;
