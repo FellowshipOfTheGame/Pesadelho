@@ -19,9 +19,9 @@ public class Brain : MonoBehaviour
         
     }
 
-    //Quando algum objeto entra em colisão com o cérebro
+    // Quando algum objeto entra em colisão com o cérebro
     void OnCollisionEnter2D(Collision2D col){
-        //Se a tag desse objeto for Enemy chamar a função de tomar dano
+        // Se a tag desse objeto for Enemy chamar a função de tomar dano
         // e destruir o inimigo que estiver atacando
         if(col.gameObject.tag == "Enemy"){
             TakeDamage();
@@ -29,16 +29,21 @@ public class Brain : MonoBehaviour
         }
     }
 
+    // Quando algum objeto entra em colisão trigger com o cérebro
     void OnTriggerEnter2D(Collider2D other) {
+        // Se a tag desse objeto for Enemy chamar a função de tomar dano
+        // e destruir o inimigo que estiver atacando
         if(other.gameObject.tag == "Enemy"){
             TakeDamage();
             Destroy(other.gameObject);
         }    
     }
     
-    //Função para subtrair vida do cérebro
+    // Função para subtrair vida do cérebro
     void TakeDamage(){
         health--;
+        // Se a vida for menor que 0 chamar a instancia
+        // do game manager e dar game over
         if(health <= 0){
             GameManager.instance.GameOver();
         }
