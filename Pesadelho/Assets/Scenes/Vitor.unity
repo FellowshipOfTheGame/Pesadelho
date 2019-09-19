@@ -1130,6 +1130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8e29771edffaf4b9a00cdee91a440a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   health: 1
   carrots: 5
 --- !u!212 &547353054
