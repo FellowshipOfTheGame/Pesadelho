@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
     public void AddCarrots(int carrots){
 
         this.carrots += carrots;
-        PlayerPrefs.SetInt("Carrots", carrots);
+        PlayerPrefs.SetInt("Carrots", this.carrots);
 
     }
 
