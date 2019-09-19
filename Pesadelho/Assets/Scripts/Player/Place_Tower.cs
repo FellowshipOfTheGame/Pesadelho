@@ -40,7 +40,11 @@ public class Place_Tower : MonoBehaviour{
             this.SetVisibility(true);
         }
 
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if(Input.GetKeyDown(KeyCode.Escape) && this.visible){
+            this.SetVisibility(false);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space) && this.visible){
             PlaceTower(this.tower);
         }
 
@@ -66,8 +70,6 @@ public class Place_Tower : MonoBehaviour{
 
     void PlaceTower(int tower){
 
-        Debug.Log(tower);
-
         Instantiate(towers[tower], _placeholder.transform.position, Quaternion.identity);
         this.SetVisibility(false);
 
@@ -81,9 +83,14 @@ public class Place_Tower : MonoBehaviour{
 
     public void SetVisibility(bool visible){
 
-        _placeholder_sprite.enabled = visible;
+        if(visible != this.visible){
 
-        this.visible = visible;
+            _player.speed = visible ? _player.speed/2 : _player.speed*2;
+            _placeholder_sprite.enabled = visible;
+
+            this.visible = visible;
+
+        }
 
     }
 
