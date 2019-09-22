@@ -442,6 +442,7 @@ GameObject:
   - component: {fileID: 6334213450870908079}
   - component: {fileID: 6334213450870908077}
   - component: {fileID: 148700268}
+  - component: {fileID: 6233541887285494076}
   m_Layer: 0
   m_Name: FirstTower
   m_TagString: Tower
@@ -507,10 +508,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bd2793f357e02c94fb5301ffa186575d, type: 3}
+  m_SortingLayerID: 1517913413
+  m_SortingLayer: 2
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: d596c8e3d607f4f40890661360e3167c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -555,18 +556,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0225842, y: -5.5193725}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.25, y: 6.25}
+    oldSize: {x: 8.666667, y: 18}
     newSize: {x: 6.25, y: 6.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.25, y: 6.25}
+  m_Size: {x: 4.217317, y: 6.6800623}
   m_EdgeRadius: 0
 --- !u!114 &6334213450870908077
 MonoBehaviour:
@@ -582,6 +583,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4967579687943065877, guid: b168fa6a263a35748afa70c570029aa9, type: 3}
   fireRate: 1
+  rotation:
+  - {fileID: 21300008, guid: 8d003b2d9c80e4c7bac413dd5e468653, type: 3}
+  - {fileID: 21300008, guid: 8d003b2d9c80e4c7bac413dd5e468653, type: 3}
+  - {fileID: 21300004, guid: 8d003b2d9c80e4c7bac413dd5e468653, type: 3}
+  - {fileID: 21300002, guid: 8d003b2d9c80e4c7bac413dd5e468653, type: 3}
+  - {fileID: 21300000, guid: 8d003b2d9c80e4c7bac413dd5e468653, type: 3}
+  - {fileID: 21300014, guid: 8d003b2d9c80e4c7bac413dd5e468653, type: 3}
+  - {fileID: 21300012, guid: 8d003b2d9c80e4c7bac413dd5e468653, type: 3}
+  - {fileID: 21300012, guid: 8d003b2d9c80e4c7bac413dd5e468653, type: 3}
 --- !u!114 &148700268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,3 +604,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d922dcceeed524a984c4691290aec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &6233541887285494076
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6334213450870908075}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 90f9fdb6c7eba4c1db1773a01da8b9f6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

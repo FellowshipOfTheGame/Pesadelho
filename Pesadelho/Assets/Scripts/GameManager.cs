@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        music.Play(0);
         // Tirar da tela os canvas e criar a instancia do game manager
         instance = this;
         GameOverCanvas.SetActive(false);

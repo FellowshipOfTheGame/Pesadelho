@@ -8,8 +8,13 @@ public class FirstTower : MonoBehaviour{
 	public GameObject bullet;
 	public float fireRate;
 
+    SpriteRenderer _sprite;
+    [SerializeField] private Sprite[] rotation;
+
     // Start is called before the first frame update
     void Start(){
+
+        _sprite = GetComponent<SpriteRenderer>();
 
     	//Lê todos os canhões da torre
     	for(int i=0;i<8;i++)
@@ -68,6 +73,7 @@ public class FirstTower : MonoBehaviour{
                     shootingCannon = 6;
 
             }
+            _sprite.sprite = rotation[shootingCannon];
 
             //Cria um tiro e define o alvo dele
     		GameObject tmp = (GameObject) Instantiate(bullet, cannon[shootingCannon].transform.position, Quaternion.identity);
