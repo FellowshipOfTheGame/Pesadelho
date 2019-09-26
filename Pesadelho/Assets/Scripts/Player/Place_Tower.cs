@@ -70,8 +70,12 @@ public class Place_Tower : MonoBehaviour{
 
     void PlaceTower(int tower){
 
-        Instantiate(towers[tower], _placeholder.transform.position, Quaternion.identity);
-        this.SetVisibility(false);
+        if(_player.CurrentDreamPower() >= towers[tower].GetComponent<Tower>().NecessaryPower()){
+            Instantiate(towers[tower], _placeholder.transform.position, Quaternion.identity);
+            this.SetVisibility(false);
+
+            _player.DreamPower(-(towers[tower].GetComponent<Tower>().NecessaryPower()));
+        }
 
     }
 

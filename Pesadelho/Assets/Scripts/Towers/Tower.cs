@@ -9,6 +9,8 @@ public class Tower : MonoBehaviour
     SpriteRenderer _sprite_remove;
     private bool remove_visibility;
 
+    [SerializeField] private int necessarypower;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,12 @@ public class Tower : MonoBehaviour
             this.remove_visibility = visibility;
 
         }
+
+    }
+
+    public int NecessaryPower(){
+
+        return this.necessarypower;
 
     }
 

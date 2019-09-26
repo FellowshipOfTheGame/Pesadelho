@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
 
     private int health = 3;
     private int carrots = 0;
+    private int maxpower = 100;
+    private int dreampower = 100;
     private int direction = 0;
     private bool invencible = false;
 
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour
 
         PlayerPrefs.SetInt("Health", this.health);
         PlayerPrefs.SetInt("Carrots", this.carrots);
+        PlayerPrefs.SetInt("DreamPower", this.dreampower);
 
 	}
 
@@ -98,7 +101,28 @@ public class Player : MonoBehaviour
     public void AddCarrots(int carrots){
 
         this.carrots += carrots;
-        PlayerPrefs.SetInt("Carrots", carrots);
+        PlayerPrefs.SetInt("Carrots", this.carrots);
+
+    }
+    public void DreamPower(int power){
+
+        this.dreampower += power;
+        PlayerPrefs.SetInt("DreamPower", this.dreampower);
+
+        if(this.dreampower > this.maxpower) this.dreampower = this.maxpower;
+        if(this.dreampower < 0) this.dreampower = 0;
+
+    }
+
+    public int MaximumPower(){
+
+        return this.maxpower;
+
+    }
+
+    public int CurrentDreamPower(){
+
+        return this.dreampower;
 
     }
 
