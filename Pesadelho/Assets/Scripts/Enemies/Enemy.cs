@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour{
 
-    Player player = new Player();
+    public Player player;
 
 	public int health = 1;
     public int carrots = 1;
@@ -22,8 +22,11 @@ public class Enemy : MonoBehaviour{
     public void Damage(){
         health--;
 
-        if(health == 0)
-            Die();
+        if(health <= 0){
+            //Die();
+            player.AddCarrots(carrots);
+            Destroy(gameObject);
+        }
     }
 
     void Die(){

@@ -13,7 +13,6 @@ public class DreamPower : MonoBehaviour
     {
 
         dreampowerbar.value = PlayerPrefs.GetInt("DreamPower");
-        Debug.Log(PlayerPrefs.GetInt("DreamPower"));
                
     }
 

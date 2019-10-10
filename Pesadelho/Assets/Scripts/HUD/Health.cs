@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour{
     [SerializeField] List<Transform> hearts = new List<Transform>();
+    private int length;
 
     void Awake(){
 
@@ -12,6 +13,8 @@ public class Health : MonoBehaviour{
     // Start is called before the first frame update
     void Start(){
 
+        length = hearts.Count;
+
     }
 
     // Update is called once per frame
@@ -19,12 +22,18 @@ public class Health : MonoBehaviour{
 
     	int health = PlayerPrefs.GetInt("Health");
 
-        while(health < hearts.Count && hearts.Count > 0){
+        if(health < length)
+            while(health < length){
+                hearts[length-1].gameObject.SetActive(false);
+                length--;
+            }
+        if(health > length)
+            while(health > length){
+                hearts[length].gameObject.SetActive(true);
+                length++;
+            }
 
-            Destroy(hearts[hearts.Count-1].gameObject);
-            hearts.RemoveAt(hearts.Count-1);
-
-        }
+        if(length > hearts.Count) length = hearts.Count;
         
     }
 }
