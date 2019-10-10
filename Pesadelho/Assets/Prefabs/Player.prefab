@@ -201,8 +201,8 @@ GameObject:
   - component: {fileID: 7021212512629865092}
   - component: {fileID: 7021212512629865091}
   - component: {fileID: 7021212512629865090}
-  - component: {fileID: 762543704}
   - component: {fileID: 762543706}
+  - component: {fileID: 1298045364}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -335,22 +335,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   blinkRate: 0.2
---- !u!114 &762543704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7021212512629865103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8d1ca506197c71488f87b10fc8877e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hearts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  spawn_x: 0
+  spawn_y: 0
 --- !u!114 &762543706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,3 +351,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towers:
   - {fileID: 6334213450870908075, guid: 570bbd910f0ceb34fb4967a4aea8bb4d, type: 3}
+--- !u!114 &1298045364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7021212512629865103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac2e66bcc806334b8ec26f446e0680f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dreampowerbar: {fileID: 0}
