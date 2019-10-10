@@ -47,14 +47,14 @@ public class EnemySpawn : MonoBehaviour
                         aux.SetActive(true);
                         special = Random.Range(1, 30/i);
                         if(special == 1){
-                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 6;
+                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 2f;
                             aux.gameObject.GetComponent<Enemy>().carrots = 10;
                         }
                         else{
-                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 1;
+                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 0.5f;
                             aux.gameObject.GetComponent<Enemy>().carrots = 5;
                         }
-                        yield return new WaitForSeconds(2);
+                        yield return new WaitForSeconds(5);
                     }
                     break;
                 case 2:
@@ -63,14 +63,14 @@ public class EnemySpawn : MonoBehaviour
                         aux.SetActive(true);
                         special = Random.Range(1, 30/i);
                         if(special == 1){
-                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 6;
+                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 2f;
                             aux.gameObject.GetComponent<Enemy>().carrots = 10;
                         }
                         else{
-                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 2;
+                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 0.7f;
                             aux.gameObject.GetComponent<Enemy>().carrots = 5;
                         }
-                        yield return new WaitForSeconds(1.5f);
+                        yield return new WaitForSeconds(5);
                     }
                     break;
                 case 3:
@@ -79,14 +79,14 @@ public class EnemySpawn : MonoBehaviour
                         aux.SetActive(true);
                         special = Random.Range(1, 30/i);
                         if(special == 1){
-                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 6;
+                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 2f;
                             aux.gameObject.GetComponent<Enemy>().carrots = 10;
                         }
                         else{
-                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 3;
+                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 0.9f;
                             aux.gameObject.GetComponent<Enemy>().carrots = 5;
                         }
-                        yield return new WaitForSeconds(1.5f);
+                        yield return new WaitForSeconds(5);
                     }
                     break;
                 case 4:
@@ -95,14 +95,14 @@ public class EnemySpawn : MonoBehaviour
                         aux.SetActive(true);
                         special = Random.Range(1, 30/i);
                         if(special == 1){
-                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 6;
+                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 2f;
                             aux.gameObject.GetComponent<Enemy>().carrots = 10;
                         }
                         else{
-                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 4;
+                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 1.2f;
                             aux.gameObject.GetComponent<Enemy>().carrots = 5;
                         }
-                        yield return new WaitForSeconds(1);
+                        yield return new WaitForSeconds(5);
                     }
                     break;
                 case 5:
@@ -111,14 +111,14 @@ public class EnemySpawn : MonoBehaviour
                         aux.SetActive(true);
                         special = Random.Range(1, 5);
                         if(special == 1){
-                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 6;
+                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 2f;
                             aux.gameObject.GetComponent<Enemy>().carrots = 10;
                         }
                         else{
-                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 5;
+                            aux.gameObject.GetComponent<Enemy_Control>().MoveSpeed = 1.5f;
                             aux.gameObject.GetComponent<Enemy>().carrots = 5;
                         }
-                        yield return new WaitForSeconds(1);
+                        yield return new WaitForSeconds(5);
                     }
                     break;
             }
