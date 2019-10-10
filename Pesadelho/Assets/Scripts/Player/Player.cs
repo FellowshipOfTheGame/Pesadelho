@@ -18,10 +18,16 @@ public class Player : MonoBehaviour
 	public float speed;
     public float blinkRate;
 
+    public int spawn_x;
+    public int spawn_y;
+
     private int health = 3;
     private int carrots = 0;
+    private int maxpower = 100;
+    private int dreampower = 100;
     private int direction = 0;
     private bool invencible = false;
+    private int respawn_counter = 0;
 
     private Animator animator;
 
@@ -32,6 +38,10 @@ public class Player : MonoBehaviour
 
         PlayerPrefs.SetInt("Health", this.health);
         PlayerPrefs.SetInt("Carrots", this.carrots);
+        PlayerPrefs.SetInt("DreamPower", this.dreampower);
+        PlayerPrefs.SetInt("Respawn_Counter", this.respawn_counter);
+
+        _rb.position = new Vector2(spawn_x, spawn_y);
 
         animator = GetComponent<Animator>();
 
@@ -46,24 +56,28 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update(){
 
-        CheckIdle();
+        if(health > 0){
+              CheckIdle();
 
-    	//GetAxisRaw has no smoothing
-    	_horizontalInput 	= Input.GetAxisRaw("Horizontal");
-        _verticalInput 		= Input.GetAxisRaw("Vertical");
 
-        if(_verticalInput == 0 && _horizontalInput == 0){
-            animator.SetBool("Running", false);
+            if(_verticalInput == 0 && _horizontalInput == 0){
+                animator.SetBool("Running", false);
+            }
+            else{
+                animator.SetBool("Running", true);
+            }
+            if(_horizontalInput != 0)
+                _verticalInput = 0;
+
+            //GetAxisRaw has no smoothing
+            _horizontalInput 	= Input.GetAxisRaw("Horizontal");
+            _verticalInput 		= Input.GetAxisRaw("Vertical");
+
+            _rb.velocity = new Vector2(_horizontalInput*speed, _verticalInput*speed);
+
+            SetDirection(_horizontalInput, _verticalInput);
+
         }
-        else{
-            animator.SetBool("Running", true);
-        }
-        if(_horizontalInput != 0)
-            _verticalInput = 0;
-
-        _rb.velocity = new Vector2(_horizontalInput*speed, _verticalInput*speed);
-
-        SetDirection(_horizontalInput, _verticalInput);
 
         
     }
@@ -78,7 +92,7 @@ public class Player : MonoBehaviour
 
     void Damage(){
 
-        if(!invencible){
+        if(!invencible && health > 0){
             
             health--;
             PlayerPrefs.SetInt("Health", this.health);
@@ -97,14 +111,17 @@ public class Player : MonoBehaviour
 
     void Blink(){
 
-        _sprite.enabled = !_sprite.enabled;
+        if(health > 0)
+            _sprite.enabled = !_sprite.enabled;
 
     }
 
     void StopBlinking(){
 
-        _sprite.enabled = true;
-        invencible      = false;
+        if(health > 0){
+            _sprite.enabled = true;
+            invencible      = false;
+        }
 
         CancelInvoke("Blink");
 
@@ -112,7 +129,40 @@ public class Player : MonoBehaviour
 
     void Die(){
 
-        //Destroy(gameObject);
+        this.gameObject.SetActive(false);
+        respawn_counter = 10;
+
+        PlayerPrefs.SetInt("Respawn_Counter", this.respawn_counter);
+
+        //Atualiza o contador de respawn
+        InvokeRepeating("RespawnCounter", 1, 1);
+        //Revive após 10 segundos
+        Invoke("Respawn", 10);
+
+    }
+
+    void Respawn(){
+
+        this.gameObject.SetActive(true);
+        _rb.position = new Vector2(spawn_x, spawn_y);
+
+        this.respawn_counter= 0;
+        this.invencible     = false;
+        this.health         = 3;
+        this.maxpower       -= 20;
+        this.dreampower     = this.dreampower > this.maxpower ? this.maxpower : this.dreampower;
+
+        PlayerPrefs.SetInt("Health", this.health);
+        PlayerPrefs.SetInt("DreamPower", this.dreampower);
+        PlayerPrefs.SetInt("Respawn_Counter", this.respawn_counter);
+        CancelInvoke("RespawnCounter");
+
+    }
+
+    void RespawnCounter(){
+
+        this.respawn_counter -= 1;
+        PlayerPrefs.SetInt("Respawn_Counter", this.respawn_counter);
 
     }
 
@@ -120,6 +170,27 @@ public class Player : MonoBehaviour
 
         this.carrots += carrots;
         PlayerPrefs.SetInt("Carrots", this.carrots);
+
+    }
+    public void DreamPower(int power){
+
+        this.dreampower += power;
+        PlayerPrefs.SetInt("DreamPower", this.dreampower);
+
+        if(this.dreampower > this.maxpower) this.dreampower = this.maxpower;
+        if(this.dreampower < 0) this.dreampower = 0;
+
+    }
+
+    public int MaximumPower(){
+
+        return this.maxpower;
+
+    }
+
+    public int CurrentDreamPower(){
+
+        return this.dreampower;
 
     }
 

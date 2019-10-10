@@ -5,12 +5,15 @@ using UnityEngine;
 public class Player_Range : MonoBehaviour
 {
 
+    Player _player;
     private Tower target;
     private Queue<Tower> towers = new Queue<Tower>();
 
     // Start is called before the first frame update
     void Start()
     {
+
+        _player = transform.parent.gameObject.GetComponent<Player>();
         
     }
 
@@ -28,6 +31,9 @@ public class Player_Range : MonoBehaviour
         if(target != null && Input.GetKeyDown(KeyCode.R)){
 
             target.GetComponent<Tower>().SetRemoveVisibility(false);
+
+            _player.DreamPower((target.GetComponent<Tower>().NecessaryPower())/2);
+
             Destroy(target.gameObject);
 
         }
