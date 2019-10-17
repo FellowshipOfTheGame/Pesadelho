@@ -16,6 +16,7 @@ public class Enemy_Control : MonoBehaviour{
 
     // Start is called before the first frame update
     void Start(){
+		
         animator = GetComponent<Animator>();
     	transform.position = waypoints[waypointIndex].transform.position;
         
