@@ -57,8 +57,11 @@ public class Player : MonoBehaviour
     void Update(){
 
         if(health > 0){
-              CheckIdle();
+            CheckIdle();
 
+            //GetAxisRaw has no smoothing
+            _horizontalInput 	= Input.GetAxisRaw("Horizontal");
+            _verticalInput 		= Input.GetAxisRaw("Vertical");
 
             if(_verticalInput == 0 && _horizontalInput == 0){
                 animator.SetBool("Running", false);
@@ -68,10 +71,6 @@ public class Player : MonoBehaviour
             }
             if(_horizontalInput != 0)
                 _verticalInput = 0;
-
-            //GetAxisRaw has no smoothing
-            _horizontalInput 	= Input.GetAxisRaw("Horizontal");
-            _verticalInput 		= Input.GetAxisRaw("Vertical");
 
             _rb.velocity = new Vector2(_horizontalInput*speed, _verticalInput*speed);
 
@@ -83,8 +82,8 @@ public class Player : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col){
-
         if(col.tag == "Enemy"){
+            Debug.Log("Machuchou");
             Damage();
         }
 

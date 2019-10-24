@@ -50,11 +50,11 @@ TagManager:
   - name: Enemy
     uniqueID: 2741583987
     locked: 0
-  - name: Brain
-    uniqueID: 2285175659
-    locked: 0
   - name: Player
     uniqueID: 1517913413
+    locked: 0
+  - name: Brain
+    uniqueID: 2285175659
     locked: 0
   - name: Bullet
     uniqueID: 748058425
