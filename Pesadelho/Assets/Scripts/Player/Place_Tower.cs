@@ -70,11 +70,17 @@ public class Place_Tower : MonoBehaviour{
 
     void PlaceTower(int tower){
 
-        if(_player.CurrentDreamPower() >= towers[tower].GetComponent<Tower>().NecessaryPower()){
-            Instantiate(towers[tower], _placeholder.transform.position, Quaternion.identity);
-            this.SetVisibility(false);
+        bool blocked = transform.Find("Placeholder").gameObject.GetComponent<Verify_BlockTower>().Blocked();
 
-            _player.DreamPower(-(towers[tower].GetComponent<Tower>().NecessaryPower()));
+        if(!blocked){
+
+            if(_player.CurrentDreamPower() >= towers[tower].GetComponent<Tower>().NecessaryPower()){
+                Instantiate(towers[tower], _placeholder.transform.position, Quaternion.identity);
+                this.SetVisibility(false);
+
+                _player.DreamPower(-(towers[tower].GetComponent<Tower>().NecessaryPower()));
+            }
+
         }
 
     }
