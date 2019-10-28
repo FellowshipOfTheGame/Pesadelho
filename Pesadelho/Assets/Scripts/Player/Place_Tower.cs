@@ -44,8 +44,9 @@ public class Place_Tower : MonoBehaviour{
             this.SetVisibility(false);
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && this.visible){
+        if(Input.GetKeyDown(KeyCode.Space) && this.visible && PlayerPrefs.GetInt("Carrots") >= 10){
             PlaceTower(this.tower);
+            _player.AddCarrots(-10);
         }
 
     }

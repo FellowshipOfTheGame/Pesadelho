@@ -11,12 +11,15 @@ public class GameManager : MonoBehaviour
     public bool Playing { get => playing; set => playing = value; }
     [SerializeField] private GameObject GameOverCanvas;
     [SerializeField] private GameObject WinCanvas;
+    [SerializeField] private Player _player;
+
     public static GameManager instance;
 
     // Start is called before the first frame update
     void Start()
     {
         music.Play(0);
+        _player.AddCarrots(50);
         // Tirar da tela os canvas e criar a instancia do game manager
         instance = this;
         GameOverCanvas.SetActive(false);
