@@ -44,9 +44,8 @@ public class Place_Tower : MonoBehaviour{
             this.SetVisibility(false);
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && this.visible && PlayerPrefs.GetInt("Carrots") >= 10){
+        if(Input.GetKeyDown(KeyCode.Space) && this.visible){
             PlaceTower(this.tower);
-            _player.AddCarrots(-10);
         }
 
     }
@@ -73,14 +72,12 @@ public class Place_Tower : MonoBehaviour{
 
         bool blocked = transform.Find("Placeholder").gameObject.GetComponent<Verify_BlockTower>().Blocked();
 
-        if(!blocked){
+        if(!blocked && _player.CurrentDreamPower() >= towers[tower].GetComponent<Tower>().NecessaryPower() && PlayerPrefs.GetInt("Carrots") >= 10){
+            Instantiate(towers[tower], _placeholder.transform.position, Quaternion.identity);
+            this.SetVisibility(false);
 
-            if(_player.CurrentDreamPower() >= towers[tower].GetComponent<Tower>().NecessaryPower()){
-                Instantiate(towers[tower], _placeholder.transform.position, Quaternion.identity);
-                this.SetVisibility(false);
-
-                _player.DreamPower(-(towers[tower].GetComponent<Tower>().NecessaryPower()));
-            }
+            _player.DreamPower(-(towers[tower].GetComponent<Tower>().NecessaryPower()));
+            _player.AddCarrots(-10);
 
         }
 
