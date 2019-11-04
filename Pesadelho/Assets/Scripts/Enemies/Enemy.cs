@@ -22,14 +22,11 @@ public class Enemy : MonoBehaviour{
     public void Damage(){
         health--;
 
-        if(health <= 0){
-            //Die();
-            player.AddCarrots(carrots);
-            Destroy(gameObject);
-        }
+        if(health <= 0)
+            Die();
     }
 
-    void Die(){
+    private void Die(){
 
         player.AddCarrots(carrots);
         Destroy(gameObject);
