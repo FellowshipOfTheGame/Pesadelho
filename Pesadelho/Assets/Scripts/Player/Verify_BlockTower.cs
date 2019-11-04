@@ -21,7 +21,8 @@ public class Verify_BlockTower : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col){
  
-        this.blocked = true;
+        if(col.tag != "Range")
+            this.blocked = true;
 
     }
     void OnTriggerExit2D(Collider2D col){

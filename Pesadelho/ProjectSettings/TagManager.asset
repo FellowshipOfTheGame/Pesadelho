@@ -8,6 +8,7 @@ TagManager:
   - Brain
   - Tower
   - Block_Tower
+  - Range
   layers:
   - Default
   - TransparentFX

@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 4141522481312959038}
   m_Layer: 0
   m_Name: Range
-  m_TagString: Untagged
+  m_TagString: Range
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -604,6 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d922dcceeed524a984c4691290aec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  necessarypower: 20
 --- !u!95 &6233541887285494076
 Animator:
   serializedVersion: 3

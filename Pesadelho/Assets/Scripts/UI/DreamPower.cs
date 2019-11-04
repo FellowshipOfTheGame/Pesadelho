@@ -6,13 +6,15 @@ using UnityEngine.UI;
 public class DreamPower : MonoBehaviour
 {
 
-    public Slider dreampowerbar;
+    private GameObject dreambar;
+    private float current_value;
 
     // Start is called before the first frame update
     void Start()
     {
 
-        dreampowerbar.value = PlayerPrefs.GetInt("DreamPower");
+        dreambar        = gameObject.transform.Find("dreambar").gameObject;
+        current_value   = PlayerPrefs.GetInt("DreamPower");
                
     }
 
@@ -20,7 +22,10 @@ public class DreamPower : MonoBehaviour
     void Update()
     {
 
-        dreampowerbar.value = PlayerPrefs.GetInt("DreamPower");
+        if(current_value != PlayerPrefs.GetInt("DreamPower"))
+            current_value += current_value > PlayerPrefs.GetInt("DreamPower") ? -2 : 2;
+
+        dreambar.GetComponent<Image>().fillAmount = ((float)current_value)/100;
         
     }
 }
