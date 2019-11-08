@@ -72,12 +72,12 @@ public class Place_Tower : MonoBehaviour{
 
         bool blocked = transform.Find("Placeholder").gameObject.GetComponent<Verify_BlockTower>().Blocked();
 
-        if(!blocked && _player.CurrentDreamPower() >= towers[tower].GetComponent<Tower>().NecessaryPower() /*&& PlayerPrefs.GetInt("Carrots") >= 10*/){
+        if(!blocked && _player.CurrentDreamPower() >= towers[tower].GetComponent<Tower>().NecessaryPower() && PlayerPrefs.GetInt("Carrots") >= 10){
             Instantiate(towers[tower], _placeholder.transform.position, Quaternion.identity);
             this.SetVisibility(false);
 
             _player.DreamPower(-(towers[tower].GetComponent<Tower>().NecessaryPower()));
-            // _player.AddCarrots(-10);
+            _player.AddCarrots(-10);
 
         }
 

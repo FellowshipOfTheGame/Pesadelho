@@ -379,8 +379,8 @@ MonoBehaviour:
   left: {fileID: 21300000, guid: 0ac45840b62224c5f85883d5e0a59299, type: 3}
   speed: 3
   blinkRate: 0.2
-  spawn_x: 0
-  spawn_y: 0
+  spawn_x: 3
+  spawn_y: 2
 --- !u!114 &762543706
 MonoBehaviour:
   m_ObjectHideFlags: 0

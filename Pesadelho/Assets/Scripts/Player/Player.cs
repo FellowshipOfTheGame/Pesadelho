@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -31,7 +32,13 @@ public class Player : MonoBehaviour
 
     private Animator animator;
 
+    [SerializeField] private GameObject RespawnCanvas;
+    [SerializeField] private GameObject RespawnText;
+
+
 	void Awake(){
+        
+        RespawnCanvas.SetActive(false);
 
 		_rb = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
@@ -101,8 +108,9 @@ public class Player : MonoBehaviour
 
             invencible = true;
 
-            if(health == 0)
+            if(health == 0){
                 Die();
+            }
 
         }
 
@@ -129,19 +137,21 @@ public class Player : MonoBehaviour
     void Die(){
 
         this.gameObject.SetActive(false);
+        RespawnCanvas.SetActive(true);
         respawn_counter = 10;
 
         PlayerPrefs.SetInt("Respawn_Counter", this.respawn_counter);
-
+        RespawnText.GetComponent<Text>().text = "" + respawn_counter;
         //Atualiza o contador de respawn
         InvokeRepeating("RespawnCounter", 1, 1);
         //Revive após 10 segundos
         Invoke("Respawn", 10);
+        
 
     }
 
     void Respawn(){
-
+        RespawnCanvas.SetActive(false);
         this.gameObject.SetActive(true);
         _rb.position = new Vector2(spawn_x, spawn_y);
 
@@ -159,10 +169,9 @@ public class Player : MonoBehaviour
     }
 
     void RespawnCounter(){
-
         this.respawn_counter -= 1;
         PlayerPrefs.SetInt("Respawn_Counter", this.respawn_counter);
-
+        RespawnText.GetComponent<Text>().text = "" + respawn_counter;
     }
 
     public void AddCarrots(int carrots){
