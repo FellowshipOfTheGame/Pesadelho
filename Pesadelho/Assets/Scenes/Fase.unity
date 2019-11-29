@@ -576,6 +576,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &185364871 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6290876101800039981, guid: c7ec9d62d56eb6d42a9aa3e4159b84b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1301543296}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &185767908 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993791378988534350, guid: dfac7f038687f074c9ea020a94dea7d4,
@@ -961,6 +973,7 @@ MonoBehaviour:
   - {fileID: 21300016, guid: 83c21d29b63424793bcc3fd909ff3461, type: 3}
   - {fileID: 21300018, guid: 83c21d29b63424793bcc3fd909ff3461, type: 3}
   - {fileID: 21300020, guid: 83c21d29b63424793bcc3fd909ff3461, type: 3}
+  dano: {fileID: 1572320647}
 --- !u!61 &380638599
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1548,7 +1561,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4785595df42f84b57982ae2a381400d0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1767,6 +1780,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6334213450870908077, guid: 570bbd910f0ceb34fb4967a4aea8bb4d,
+        type: 3}
+      propertyPath: tiro
+      value: 
+      objectReference: {fileID: 184841952}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 570bbd910f0ceb34fb4967a4aea8bb4d, type: 3}
 --- !u!1 &701553251
@@ -2347,6 +2365,11 @@ PrefabInstance:
       propertyPath: enemyPrefab
       value: 
       objectReference: {fileID: 1532946086}
+    - target: {fileID: 6028534540361410788, guid: 7eaa6ddd5ddfe46e68cc1fe7142ebdf8,
+        type: 3}
+      propertyPath: n_waves
+      value: 
+      objectReference: {fileID: 185364871}
     - target: {fileID: 6028534540361410790, guid: 7eaa6ddd5ddfe46e68cc1fe7142ebdf8,
         type: 3}
       propertyPath: GameOverCanvas
@@ -6191,6 +6214,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -351.8
       objectReference: {fileID: 0}
+    - target: {fileID: 2833501039776957603, guid: c7ec9d62d56eb6d42a9aa3e4159b84b7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 331.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7ec9d62d56eb6d42a9aa3e4159b84b7, type: 3}
 --- !u!1001 &1317874231
@@ -6575,7 +6603,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c7735cd71127845a99198a927baaf3f2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6714,7 +6742,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fb90b3cf1d61d49169ad55f4cc26c3ec, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.498
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6871,6 +6899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   healthBar: []
+  dano: {fileID: 0}
 --- !u!61 &1625577541
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7851,6 +7880,14 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.44380736
       objectReference: {fileID: 0}
+    - target: {fileID: 762543706, guid: 14f9c105f93a9a845a48d396c4a8c85b, type: 3}
+      propertyPath: colocar
+      value: 
+      objectReference: {fileID: 611498976}
+    - target: {fileID: 1786340413, guid: 14f9c105f93a9a845a48d396c4a8c85b, type: 3}
+      propertyPath: tirar
+      value: 
+      objectReference: {fileID: 1487193785}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14f9c105f93a9a845a48d396c4a8c85b, type: 3}
 --- !u!1 &1895134659
