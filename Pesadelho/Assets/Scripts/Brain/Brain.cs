@@ -6,17 +6,53 @@ public class Brain : MonoBehaviour
 {
     [SerializeField] private int health;
     public int Health { get => health; set => health = value; }
+    [SerializeField] private Sprite[] healthBar; 
+
+    private SpriteRenderer sr;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        sr = gameObject.GetComponent<SpriteRenderer>();
+        //healthBar = Resources.LoadAll<Sprite>("Art/Brain/Vida");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(health == 10){
+            sr.sprite = healthBar[0];
+        }
+        else if(health == 9){
+            sr.sprite = healthBar[1];
+        }
+        else if(health == 8){
+            sr.sprite = healthBar[2];
+        }
+        else if(health == 7){
+            sr.sprite = healthBar[3];
+        }
+        else if(health == 6){
+            sr.sprite = healthBar[4];
+        }
+        else if(health == 5){
+            sr.sprite = healthBar[5];
+        }
+        else if(health == 4){
+            sr.sprite = healthBar[6];
+        }
+        else if(health == 3){
+            sr.sprite = healthBar[7];
+        }
+        else if(health == 2){
+            sr.sprite = healthBar[8];
+        }
+        else if(health == 1){
+            sr.sprite = healthBar[9];
+        }
+        else if(health == 0){
+            sr.sprite = healthBar[10];
+        }
     }
 
     // Quando algum objeto entra em colisão com o cérebro
