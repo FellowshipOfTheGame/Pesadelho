@@ -7,6 +7,8 @@ public class Brain : MonoBehaviour
     [SerializeField] private int health;
     public int Health { get => health; set => health = value; }
     [SerializeField] private Sprite[] healthBar; 
+    [SerializeField] private AudioSource dano;
+
 
     private SpriteRenderer sr;
 
@@ -78,6 +80,7 @@ public class Brain : MonoBehaviour
     // Função para subtrair vida do cérebro
     void TakeDamage(){
         health--;
+        dano.Play(0);
         // Se a vida for menor que 0 chamar a instancia
         // do game manager e dar game over
         if(health <= 0){

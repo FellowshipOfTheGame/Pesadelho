@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject RespawnCanvas;
     [SerializeField] private GameObject RespawnText;
 
+    [SerializeField] private AudioSource dano;
+
 
 	void Awake(){
         
@@ -99,7 +101,7 @@ public class Player : MonoBehaviour
     void Damage(){
 
         if(!invencible && health > 0){
-            
+            dano.Play(0);
             health--;
             PlayerPrefs.SetInt("Health", this.health);
 
@@ -135,7 +137,7 @@ public class Player : MonoBehaviour
     }
 
     void Die(){
-
+        dano.Play(0);
         this.gameObject.SetActive(false);
         RespawnCanvas.SetActive(true);
         respawn_counter = 10;

@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private AudioSource music;
+    [SerializeField] private AudioSource musicWin;
+
+    [SerializeField] private AudioSource musicLose;
+
     [SerializeField] private bool playing = false;
     public bool Playing { get => playing; set => playing = value; }
     [SerializeField] private GameObject GameOverCanvas;
@@ -33,17 +37,22 @@ public class GameManager : MonoBehaviour
         
     }
 
+      
     // Função para ganhar o jogo
     public void Win(){
         Playing = false;
-        Time.timeScale = 0;
+        musicWin.Play(0);
+        //StartCoroutine(esperar(5));
         WinCanvas.SetActive(true);
+        Time.timeScale = 0;
     }
     
     //Função para parar o jogo e mostrar a tela de game over
     public void GameOver(){
         Playing = false;
-        Time.timeScale = 0;
+        musicLose.Play(0);
+        //StartCoroutine(esperar(3));
         GameOverCanvas.SetActive(true);
+        Time.timeScale = 0;
     }
 }

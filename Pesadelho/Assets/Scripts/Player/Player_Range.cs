@@ -8,6 +8,8 @@ public class Player_Range : MonoBehaviour
     Player _player;
     private Tower target;
     private Queue<Tower> towers = new Queue<Tower>();
+    [SerializeField] private AudioSource tirar;
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +37,7 @@ public class Player_Range : MonoBehaviour
             _player.DreamPower((target.GetComponent<Tower>().NecessaryPower())/2);
 
             Destroy(target.gameObject);
-
+            tirar.Play(0);
         }
         
     }

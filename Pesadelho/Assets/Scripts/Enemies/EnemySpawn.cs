@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class EnemySpawn : MonoBehaviour
 {
@@ -14,9 +16,12 @@ public class EnemySpawn : MonoBehaviour
     private int rand;
     private int special;
 
+    [SerializeField] private Text n_waves;
+
     // Start is called before the first frame update
     void Start()
     {   
+        n_waves.text = "1 / " + tamWave;
         // Colocar o tempo rodando
         Time.timeScale = 1;
         // Criar e iniciar uma rotina para usar tempo entre as waves
@@ -34,7 +39,7 @@ public class EnemySpawn : MonoBehaviour
             // armazenado na array Wave
             rand = Random.Range(1, 5);
             Debug.Log(rand+" "+i);
-
+            n_waves.text = i + " / " + tamWave;
             // Dependendo do número randomizado a velocidade do inimigo irá mudar
             switch(rand){
                 // Cada caso instanceia um inimigo novo, deixa ele visivel e muda sua velocidade

@@ -11,6 +11,9 @@ public class FirstTower : MonoBehaviour{
     SpriteRenderer _sprite;
     [SerializeField] private Sprite[] rotation;
 
+    [SerializeField] private AudioSource tiro;
+
+
     // Start is called before the first frame update
     void Start(){
 
@@ -78,7 +81,7 @@ public class FirstTower : MonoBehaviour{
             //Cria um tiro e define o alvo dele
     		GameObject tmp = (GameObject) Instantiate(bullet, cannon[shootingCannon].transform.position, Quaternion.identity);
     		tmp.GetComponent<Bullet>().SetTarget(target.transform.position);
-		
+            tiro.Play(0);
 		}
 
     }
