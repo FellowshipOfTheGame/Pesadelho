@@ -32,7 +32,7 @@ public class Player_Range : MonoBehaviour
 
             target.GetComponent<Tower>().SetRemoveVisibility(false);
 
-            _player.DreamPower((target.GetComponent<Tower>().NecessaryPower())/2);
+            _player.DreamPower(target.GetComponent<Tower>().NecessaryPower());
 
             Destroy(target.gameObject);
 
