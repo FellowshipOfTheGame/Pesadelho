@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 0}
   Wave: 050000000a0000000f0000001400000019000000
+  n_waves: {fileID: 0}
 --- !u!114 &6028534540361410790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,9 +61,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music: {fileID: 0}
+  musicWin: {fileID: 0}
+  musicLose: {fileID: 0}
   playing: 0
   GameOverCanvas: {fileID: 0}
   WinCanvas: {fileID: 0}
+  _player: {fileID: 0}
 --- !u!114 &6028534540361410793
 MonoBehaviour:
   m_ObjectHideFlags: 0
