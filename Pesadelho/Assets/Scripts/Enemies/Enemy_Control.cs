@@ -34,14 +34,12 @@ public class Enemy_Control : MonoBehaviour{
     	if(waypointIndex < waypoints.Length){
 	    	transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, MoveSpeed*Time.deltaTime);
 
-			if(waypoints[waypointIndex+1].transform.position.x > transform.position.x){
-				animator.SetBool("Right", true);
-				animator.SetBool("Left", false);
+			if(waypoints[waypointIndex].transform.position.x > transform.position.x){
+				transform.localScale = new Vector3(-1, 1, 1);
 			}
 			else
 			{
-				animator.SetBool("Right", false);
-				animator.SetBool("Left", true);
+				transform.localScale = new Vector3(1, 1, 1);
 			}
 
 	    	if(transform.position == waypoints[waypointIndex].transform.position)

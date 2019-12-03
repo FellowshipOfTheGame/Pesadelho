@@ -9,6 +9,8 @@ public class Place_Tower : MonoBehaviour{
     SpriteRenderer _placeholder_sprite;
 
     [SerializeField] GameObject[] towers = null;
+    [SerializeField] private AudioSource colocar;
+
 
     private bool visible;
     private int tower;
@@ -72,12 +74,14 @@ public class Place_Tower : MonoBehaviour{
 
         bool blocked = transform.Find("Placeholder").gameObject.GetComponent<Verify_BlockTower>().Blocked();
 
-        if(!blocked && _player.CurrentDreamPower() >= towers[tower].GetComponent<Tower>().NecessaryPower() /*&& PlayerPrefs.GetInt("Carrots") >= 10*/){
+        if(!blocked && _player.CurrentDreamPower() >= towers[tower].GetComponent<Tower>().NecessaryPower() && PlayerPrefs.GetInt("Carrots") >= 10){
             Instantiate(towers[tower], _placeholder.transform.position, Quaternion.identity);
             this.SetVisibility(false);
+            
+            colocar.Play(0);
 
             _player.DreamPower(-(towers[tower].GetComponent<Tower>().NecessaryPower()));
-            // _player.AddCarrots(-10);
+            _player.AddCarrots(-10);
 
         }
 
