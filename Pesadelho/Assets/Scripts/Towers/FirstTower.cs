@@ -13,11 +13,13 @@ public class FirstTower : MonoBehaviour{
 
     [SerializeField] private AudioSource tiro;
 
+    private Animator _anim;
+
 
     // Start is called before the first frame update
     void Start(){
-
-        _sprite = GetComponent<SpriteRenderer>();
+        _anim = GetComponent<Animator>();
+        _sprite =  GetComponent<SpriteRenderer>();
 
     	//Lê todos os canhões da torre
     	for(int i=0;i<8;i++)
@@ -41,7 +43,7 @@ public class FirstTower : MonoBehaviour{
 
         //Se existir um alvo
 		if(target != null){
-
+            _anim.enabled  = false;
             //Calcula o ângulo do alvo em relação à torre e define o canhão a ser utilizado
             Vector3 targetDir = (target.transform.position - transform.position).normalized;
             float angle = Vector3.Angle(new Vector3(1, 0, 0), targetDir);
@@ -76,6 +78,7 @@ public class FirstTower : MonoBehaviour{
                     shootingCannon = 6;
 
             }
+            
             _sprite.sprite = rotation[shootingCannon];
 
             //Cria um tiro e define o alvo dele
@@ -83,6 +86,10 @@ public class FirstTower : MonoBehaviour{
     		tmp.GetComponent<Bullet>().SetTarget(target.transform.position);
             tiro.Play(0);
 		}
+        else
+        {
+            _anim.enabled = true;
+        }
 
     }
 

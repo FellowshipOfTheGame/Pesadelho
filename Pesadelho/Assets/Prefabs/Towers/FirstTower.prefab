@@ -576,7 +576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6334213450870908073
 Transform:
   m_ObjectHideFlags: 0
@@ -721,7 +721,7 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 8d003b2d9c80e4c7bac413dd5e468653, type: 3}
   - {fileID: 21300012, guid: 8d003b2d9c80e4c7bac413dd5e468653, type: 3}
   - {fileID: 21300012, guid: 8d003b2d9c80e4c7bac413dd5e468653, type: 3}
-  tiro: {fileID: 7607952101545485564}
+  tiro: {fileID: 0}
 --- !u!114 &148700268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,7 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d922dcceeed524a984c4691290aec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  necessarypower: 20
+  necessarypower: 0
 --- !u!95 &6233541887285494076
 Animator:
   serializedVersion: 3
