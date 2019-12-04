@@ -90,15 +90,7 @@ public class Player : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D col){
-        if(col.tag == "Enemy"){
-            Debug.Log("Machuchou");
-            Damage();
-        }
-
-    }
-
-    void Damage(){
+    public void Damage(){
 
         if(!invencible && health > 0){
             dano.Play(0);

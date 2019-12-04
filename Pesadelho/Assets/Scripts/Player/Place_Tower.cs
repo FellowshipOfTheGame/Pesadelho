@@ -106,4 +106,10 @@ public class Place_Tower : MonoBehaviour{
 
     }
 
+    public bool Visible(){
+
+        return this.visible;
+
+    }
+
 }
