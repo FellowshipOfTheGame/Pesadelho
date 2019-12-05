@@ -42,6 +42,11 @@ public class Place_Tower : MonoBehaviour{
             this.SetVisibility(true);
         }
 
+        if(Input.GetKeyDown(KeyCode.Alpha2)){
+            this.SetTower(1);
+            this.SetVisibility(true);
+        }
+
         if(Input.GetKeyDown(KeyCode.Escape) && this.visible){
             this.SetVisibility(false);
         }

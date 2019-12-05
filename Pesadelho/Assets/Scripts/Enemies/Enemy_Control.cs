@@ -7,6 +7,7 @@ public class Enemy_Control : MonoBehaviour{
 	//SerializeField permite que variáveis privadas apareçam na GUI
 	[SerializeField] Transform[] waypoints = null;
 	[SerializeField] float moveSpeed = 2f;
+	private float _moveSpeed;
 
 	int waypointIndex = 0;
 
@@ -47,4 +48,18 @@ public class Enemy_Control : MonoBehaviour{
     	}
 
     }
+
+	public void SlowDown(){
+
+        this.moveSpeed /= 1.4f;
+        Invoke("NormalizeSpeed", 5);
+
+    }
+
+	private void NormalizeSpeed(){
+
+		this.moveSpeed *= 1.4f;
+
+	}
+
 }

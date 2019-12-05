@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hitbox_Ataque : MonoBehaviour
+public class ArcoIro : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -20,11 +20,11 @@ public class Hitbox_Ataque : MonoBehaviour
 
         if(col.tag == "Enemy"){
 
-            Debug.Log("nice");
             col.GetComponent<Enemy>().Damage(1);
+            col.GetComponent<Enemy_Control>().SlowDown();
 
         }
 
     }
-    
+
 }
